@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet, Text, Image} from 'react-native';
+import { View, ScrollView, StyleSheet, FlatList, Text, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Boton from '../components/Boton';
+import data2 from '../data/data2';
 
 const Daniela = ({ navigation }) => {
-
+    const informacion = data2;
     const irPantalla1 = () => {
         navigation.navigate('Pantalla1');
     };
@@ -12,27 +13,21 @@ const Daniela = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <ScrollView contentContainerStyle={styles.scrollView}>
-                <View style={styles.card}>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.title}>Trabajo en clase:</Text>
-                        <Text style={styles.title}>Daniela: </Text>
-                        <Text style={styles.description}>
-                        Agregar una pantalla y replicar la siguiente pantalla, las imagenes pueden ser otras: 
-                        </Text>
-
-                    </View>
-                    <Boton
-                        textoBoton='Regresar a Inicio'
-                        accionBoton={irPantalla1}
+                <View style={styles.flatListContainer}>
+                    <FlatList
+                        data2={informacion}
+                        horizontal={true}
+                        renderItem={({ item }) => (
+                            <View style={styles.cardContainer}>
+                                <Image source={item.src} style={styles.image} />
+                                <Text style={styles.title}>{item.title}</Text>
+                                <Text style={styles.title2}>{item.title2}</Text>
+                            </View>
+                        )}
+                        keyExtractor={(item) => item.id}
                     />
                 </View>
-                        <Image
-                            style={styles.image}
-                            source={require('../img/ejercicio2.jpg')}/>
-                            
-                <Image
-                            style={styles.image}
-                            source={require('../img/ejercicio1.jpg')}/>
+
             </ScrollView>
         </View>
     );
@@ -42,25 +37,25 @@ export default Daniela;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
+        flex:1,
+        backgroundColor: '#A6B1E1',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: StatusBar.currentHeight || 0,
-        paddingTop:30
+        paddingTop: 20,
+        marginTop: StatusBar.currentHeight || 20,
     },
-    scrollView: {
-        flexGrow: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+    flatListContainer: {
+        height: 180, // Altura fija para evitar el crecimiento automático
+        marginHorizontal:5
     },
-    card: {
+    cardContainer: {
         backgroundColor: '#fff',
         borderRadius: 8,
         borderWidth: 1,
         borderColor: '#ccc',
         padding: 10,
-        marginBottom: 20,
+        marginBottom: 10,
+        marginHorizontal: 5,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -69,24 +64,19 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        width: '95%',
-        alignItems: 'center',
+        alignItems:'center'
     },
     image: {
-        width: 206, // Aumenta el ancho de la imagen
-        height: 459, // Aumenta la altura de la imagen
+        width: 100,
+        height: 100,
         marginBottom: 10,
     },
-    textContainer: {
-        alignItems: 'center',
-    },
     title: {
-        fontSize: 20,
-        fontWeight: '600',
-        marginBottom: 5,
-    },
-    description: {
         fontSize: 16,
-        marginBottom: 20,
+        fontWeight: 'bold',
     },
+    texto:{
+        marginHorizontal:15
+    }
 });
+
