@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import creadorData from '../data/creador';
 import Boton from '../components/Boton';
 
-const Ejercicio = ({ navigation }) => {
+const Carlos = ({ navigation }) => {
     const irPantalla1 = () => {
         navigation.navigate('Pantalla1');
     };
@@ -29,7 +29,7 @@ accionBoton={irPantalla1}
     );
 };
 
-export default Ejercicio;
+export default Carlos;
 
 const styles = StyleSheet.create({
     container: {

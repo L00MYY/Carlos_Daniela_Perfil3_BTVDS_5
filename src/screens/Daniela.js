@@ -3,7 +3,7 @@ import { View, ScrollView, StyleSheet, Text, Image} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Boton from '../components/Boton';
 
-const Indicaciones = ({ navigation }) => {
+const Daniela = ({ navigation }) => {
 
     const irPantalla1 = () => {
         navigation.navigate('Pantalla1');
@@ -15,7 +15,7 @@ const Indicaciones = ({ navigation }) => {
                 <View style={styles.card}>
                     <View style={styles.textContainer}>
                         <Text style={styles.title}>Trabajo en clase:</Text>
-                        <Text style={styles.title}>Indicaciones: </Text>
+                        <Text style={styles.title}>Daniela: </Text>
                         <Text style={styles.description}>
                         Agregar una pantalla y replicar la siguiente pantalla, las imagenes pueden ser otras: 
                         </Text>
@@ -38,7 +38,7 @@ const Indicaciones = ({ navigation }) => {
     );
 };
 
-export default Indicaciones;
+export default Daniela;
 
 const styles = StyleSheet.create({
     container: {
