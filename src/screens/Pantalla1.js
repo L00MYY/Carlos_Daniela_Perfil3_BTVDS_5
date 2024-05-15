@@ -13,7 +13,7 @@ const Pantalla1 = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Mostrando Informacion horizontal</Text>
+            <Text style={styles.title}>Estudiantes</Text>
             <View style={styles.flatListContainer}>
                 <FlatList
                     data={informacion}
@@ -22,16 +22,15 @@ const Pantalla1 = ({ navigation }) => {
                         <View style={styles.cardContainer}>
                             <Image source={item.src} style={styles.image} />
                             <Text style={styles.title}>{item.title}</Text>
+                            <Text style={styles.title2}>{item.title2}</Text>
                         </View>
                     )}
                     keyExtractor={(item) => item.id}
                 />
             </View>
 
-            <Text style={styles.texto}>Mostrando Informacion horizontal, utilizando el componente FlatList y la propiedad horizontal con valor true</Text>
-
             <Boton
-            textoBoton='Ir a creditos'
+            textoBoton='Ver Detalles'
             accionBoton={irPantalla2}
             />
         </View>
@@ -43,14 +42,14 @@ export default Pantalla1;
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        backgroundColor: '#FFF',
+        backgroundColor: '#F3DAD8',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 20,
         marginTop: StatusBar.currentHeight || 20,
     },
     flatListContainer: {
-        height: 160, // Altura fija para evitar el crecimiento automático
+        height: 180, // Altura fija para evitar el crecimiento automático
         marginHorizontal:5
     },
     cardContainer: {

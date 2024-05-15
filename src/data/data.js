@@ -1,23 +1,15 @@
 const Data = [
     {
       id: '1',
-      title: 'Pupusas',
-      src: require('../img/pupusas-comida.jpg'),
+      title: 'Dani Ramirez',
+      title2: '20220434',
+      src: require('../img/daniela.png'),
     },
     {
       id: '2',
-      title: 'Atol de Elote',
-      src: require('../img/atol-bebida.jpg'),
-    },
-    {
-      id: '3',
-      title: 'Sopa de pata',
-      src: require('../img/sopa-de-pata.jpg'),
-    },
-    {
-      id: '4',
-      title: 'Tamales de Elote',
-      src: require('../img/tamales-comida.jpg'),
+      title: 'Carlos Quintanilla',
+      title2: '20220367',
+      src: require('../img/carlos.png'),
     }
   ];
 
