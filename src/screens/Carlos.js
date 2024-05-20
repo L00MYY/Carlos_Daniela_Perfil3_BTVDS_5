@@ -1,58 +1,67 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Text, Image } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, FlatList, Text, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import creadorData from '../data/creador';
 import Boton from '../components/Boton';
+import dataCarlos from '../data/dataCarlos';
 
 const Carlos = ({ navigation }) => {
-    const irPantalla1 = () => {
-        navigation.navigate('Pantalla1');
+    const informacion = dataCarlos;
+
+    const irPantalla2 = async () => {
+        navigation.navigate('Pantalla2');
     };
 
     return (
         <View style={styles.container}>
-            <View style={styles.card}>
-                <View style={styles.textContainer}>
-                    <Text style={styles.title}>Perfil 3:</Text>
-                    <Text style={styles.title}>Indicaciones: </Text>
-                    <Text style={styles.description}>
-                    En parejas, se debe de realizar una investigación sobre como se implementa un menú de navegación en una aplicación móvil con React Native – Expo go.
-                    Para más información ver el documento que se encuentra en teams
-                    </Text>
-                </View>
-                <Boton
-textoBoton='Regresar a Inicio'
-accionBoton={irPantalla1}
-/>
+            <Text style={styles.titleMain}>Comidas Favoritas Carlos</Text>
+            <View style={styles.flatListContainer}>
+                <FlatList
+                    data={dataCarlos}
+                    horizontal={true}
+                    renderItem={({ item }) => (
+                        <View style={styles.cardContainer}>
+                            <Image source={item.src} style={styles.image} />
+                            <Text style={styles.title}>{item.title}</Text>
+                            <Text style={styles.title2}>{item.title2}</Text>
+                        </View>
+                    )}
+                    keyExtractor={(item) => item.id}
+                />
             </View>
+
+            <Boton
+            textoBoton='Volver'
+            accionBoton={irPantalla2}
+            />
         </View>
     );
 };
 
 export default Carlos;
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#0C6291',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: StatusBar.currentHeight || 0,
+        paddingTop: 20,
+        marginTop: StatusBar.currentHeight || 20,
     },
-    lista: {
-        fontSize: 16,
-        lineHeight: 24,
-        marginLeft: 20, // Añade un margen a la izquierda para simular la lista
-        fontWeight: 'bold', // Opcional: Puedes aplicar cualquier otro estilo que desees
-        color: 'black', // Opcional: Color del texto de la lista
+    flatListContainer: {
+        height: 180, // Altura fija para evitar el crecimiento automático
+        marginHorizontal: 5
     },
-    card: {
+    cardContainer: {
         backgroundColor: '#fff',
         borderRadius: 8,
         borderWidth: 1,
         borderColor: '#ccc',
-        padding: 20,
-        marginBottom: 20,
+        padding: 10,
+        marginBottom: 10,
+        marginHorizontal: 5,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -61,34 +70,27 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        width: '80%',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     image: {
         width: 100,
         height: 100,
         marginBottom: 10,
     },
-    textContainer: {
-        alignItems: 'center',
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: '600',
-        marginBottom: 5,
-    },
-    description: {
-        fontSize: 16,
-        marginBottom: 20,
-    },
-    button: {
-        backgroundColor: 'lightblue',
-        padding: 10,
-        borderRadius: 5,
-    },
-    buttonText: {
+    titleMain: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#fff',
+        color: 'white'
     },
+    title: {
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    title2: {
+        fontSize: 14,
+        fontWeight: 'bold',
+    },
+    texto: {
+        marginHorizontal: 15
+    }
 });

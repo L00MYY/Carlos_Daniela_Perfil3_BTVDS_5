@@ -2,10 +2,10 @@ import React from 'react';
 import { View, ScrollView, StyleSheet, FlatList, Text, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Boton from '../components/Boton';
-import data2 from '../data/data2';
+import dataDani from '../data/dataDani';
 
 const Daniela = ({ navigation }) => {
-    const informacion = data;
+    const informacion = dataDani;
 
     const irPantalla2 = async () => {
         navigation.navigate('Pantalla2');
@@ -13,15 +13,16 @@ const Daniela = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Mostrando Informacion horizontal</Text>
+            <Text style={styles.title}>Comidas Favoritas Dani</Text>
             <View style={styles.flatListContainer}>
                 <FlatList
-                    data={informacion}
+                    data={dataDani}
                     horizontal={true}
                     renderItem={({ item }) => (
                         <View style={styles.cardContainer}>
                             <Image source={item.src} style={styles.image} />
                             <Text style={styles.title}>{item.title}</Text>
+                            <Text style={styles.title2}>{item.title2}</Text>
                         </View>
                     )}
                     keyExtractor={(item) => item.id}
@@ -76,6 +77,10 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 16,
+        fontWeight: 'bold',
+    },
+    title2: {
+        fontSize: 14,
         fontWeight: 'bold',
     },
     texto: {

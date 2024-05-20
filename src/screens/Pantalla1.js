@@ -30,7 +30,7 @@ const Pantalla1 = ({ navigation }) => {
             </View>
 
             <Boton
-            textoBoton='Ver Detalles'
+            textoBoton='Ver Más'
             accionBoton={irPantalla2}
             />
         </View>
