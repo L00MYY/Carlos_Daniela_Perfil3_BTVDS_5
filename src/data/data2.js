@@ -1,16 +1,24 @@
-const Data2 = [
-    {
-      id: '1',
-      title: 'Dani Ramirez',
-      title2: '20220434',
-      src: require('../img/daniela.png'),
-    },
-    {
-      id: '2',
-      title: 'Carlos Quintanilla',
-      title2: '20220367',
-      src: require('../img/carlos.png'),
-    }
-  ];
+const Data = [
+  {
+    id: '1',
+    title: 'Pupusas',
+    src: require('../img/pupusas-comida.jpg'),
+  },
+  {
+    id: '2',
+    title: 'Atol de Elote',
+    src: require('../img/atol-bebida.jpg'),
+  },
+  {
+    id: '3',
+    title: 'Sopa de pata',
+    src: require('../img/sopa-de-pata.jpg'),
+  },
+  {
+    id: '4',
+    title: 'Tamales de Elote',
+    src: require('../img/tamales-comida.jpg'),
+  }
+];
 
-  export default Data2;
+export default Data;

@@ -5,30 +5,33 @@ import Boton from '../components/Boton';
 import data2 from '../data/data2';
 
 const Daniela = ({ navigation }) => {
-    const informacion = data2;
-    const irPantalla1 = () => {
-        navigation.navigate('Pantalla1');
+    const informacion = data;
+
+    const irPantalla2 = async () => {
+        navigation.navigate('Pantalla2');
     };
 
     return (
         <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollView}>
-                <View style={styles.flatListContainer}>
-                    <FlatList
-                        data2={informacion}
-                        horizontal={true}
-                        renderItem={({ item }) => (
-                            <View style={styles.cardContainer}>
-                                <Image source={item.src} style={styles.image} />
-                                <Text style={styles.title}>{item.title}</Text>
-                                <Text style={styles.title2}>{item.title2}</Text>
-                            </View>
-                        )}
-                        keyExtractor={(item) => item.id}
-                    />
-                </View>
+            <Text style={styles.title}>Mostrando Informacion horizontal</Text>
+            <View style={styles.flatListContainer}>
+                <FlatList
+                    data={informacion}
+                    horizontal={true}
+                    renderItem={({ item }) => (
+                        <View style={styles.cardContainer}>
+                            <Image source={item.src} style={styles.image} />
+                            <Text style={styles.title}>{item.title}</Text>
+                        </View>
+                    )}
+                    keyExtractor={(item) => item.id}
+                />
+            </View>
 
-            </ScrollView>
+            <Boton
+            textoBoton='Volver'
+            accionBoton={irPantalla2}
+            />
         </View>
     );
 };
@@ -37,7 +40,7 @@ export default Daniela;
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         backgroundColor: '#A6B1E1',
         alignItems: 'center',
         justifyContent: 'center',
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
     },
     flatListContainer: {
         height: 180, // Altura fija para evitar el crecimiento automático
-        marginHorizontal:5
+        marginHorizontal: 5
     },
     cardContainer: {
         backgroundColor: '#fff',
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        alignItems:'center'
+        alignItems: 'center'
     },
     image: {
         width: 100,
@@ -75,8 +78,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
-    texto:{
-        marginHorizontal:15
+    texto: {
+        marginHorizontal: 15
     }
 });
 
